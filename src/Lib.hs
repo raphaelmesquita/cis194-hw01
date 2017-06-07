@@ -18,5 +18,10 @@ sumDigits :: [Integer] -> Integer
 sumDigits = sum . concatMap toDigits
 
 validate :: Integer -> Bool
-validate num = finalSum `mod` 10 == 0
-  where finalSum = sumDigits . doubleEveryOther . toDigitsRev $ num
+validate cardNum = finalSum `mod` 10 == 0
+  where finalSum = sumDigits . doubleEveryOther . toDigitsRev $ cardNum
+
+type Peg = String
+type Move = (Peg, Peg)
+hanoi :: Integer -> Peg -> Peg -> Peg -> [Move]
+hanoi = undefined
