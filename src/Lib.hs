@@ -1,11 +1,4 @@
-module Lib
-    ( someFunc
-      ,toDigits
-      ,toDigitsRev
-      ,doubleEveryOther
-      ,sumDigits
-      ,validate
-    ) where
+module Lib where
 
 someFunc :: IO ()
 someFunc = putStrLn "Hello World!"
