@@ -2,7 +2,9 @@ module Lib
     ( someFunc
       ,toDigits
       ,toDigitsRev
-      ,doubleEveryOtherRev
+      ,doubleEveryOther
+      ,sumDigits
+      ,validate
     ) where
 
 someFunc :: IO ()
@@ -16,6 +18,12 @@ toDigits n
 toDigitsRev :: Integer -> [Integer]
 toDigitsRev = reverse . toDigits
 
-doubleEveryOtherRev :: [Integer] -> [Integer]
-doubleEveryOtherRev = reverse . doubleEveryOther . reverse 
-  where doubleEveryOther = zipWith (*) $ cycle [1,2]
+doubleEveryOther :: [Integer] -> [Integer]
+doubleEveryOther = zipWith (*) $ cycle [1,2]
+
+sumDigits :: [Integer] -> Integer
+sumDigits = sum . concatMap toDigits
+
+validate :: Integer -> Bool
+validate num = finalSum `mod` 10 == 0
+  where finalSum = sumDigits . doubleEveryOther . toDigitsRev $ num
