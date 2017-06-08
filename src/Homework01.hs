@@ -1,7 +1,4 @@
-module Lib where
-
-someFunc :: IO ()
-someFunc = putStrLn "Hello World!"
+module Homework01 where
 
 toDigits :: Integer -> [Integer]
 toDigits n  
