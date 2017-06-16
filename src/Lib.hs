@@ -18,6 +18,11 @@ validate :: Integer -> Bool
 validate cardNum = finalSum `mod` 10 == 0
   where finalSum = sumDigits . doubleEveryOther . toDigitsRev $ cardNum
 
+primes :: [Integer]
+primes = getPrimes [2..]
+  where getPrimes []     = []
+        getPrimes (x:xs) = x:getPrimes [x' | x'<-xs, x' `mod` x /= 0]
+
 type Peg = String
 type Move = (Peg, Peg)
 hanoi :: Integer -> Peg -> Peg -> Peg -> [Move]
