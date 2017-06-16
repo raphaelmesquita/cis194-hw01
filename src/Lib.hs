@@ -1,4 +1,4 @@
-module Homework01 where
+module Lib where
 
 toDigits :: Integer -> [Integer]
 toDigits n  
@@ -17,8 +17,6 @@ sumDigits = sum . concatMap toDigits
 validate :: Integer -> Bool
 validate cardNum = finalSum `mod` 10 == 0
   where finalSum = sumDigits . doubleEveryOther . toDigitsRev $ cardNum
--- validate = (== 0) . (`mod` 10) . runAlgorithm
---   where runAlgorithm = sumDigits . doubleEveryOther . toDigitsRev
 
 type Peg = String
 type Move = (Peg, Peg)
